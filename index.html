@@ -142,14 +142,17 @@
     const WEB3FORMS_KEY='05296ed9-4824-49ad-93a1-f300f18fb16b'; // ← free key from web3forms.com (sent to your Gmail); her messages are delivered there
     const CODE_HASH='807e7c542324d83c0bbf1a1e99c2fe68715b4246b3d8c641dabd5bbf7cf5f036'; // SHA-256 of the access code
     const $=id=>document.getElementById(id);
+    let busy=false;
     const sha=async t=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)))].map(x=>x.toString(16).padStart(2,'0')).join('');
     $('f').onsubmit=async e=>{
-      e.preventDefault();
+      e.preventDefault();if(busy)return;
       const err=$('err');err.textContent='';
       let ok=false;
       try{ok=(await sha($('pw').value.replace(/[.\s]/g,'').toUpperCase()))===CODE_HASH}
       catch(_){err.textContent='A secure (https) connection is required.';return}
       if(!ok){err.textContent='Incorrect code. Please try again.';$('pw').select();return}
+      busy=true;$('pw').readOnly=true;err.className='mt-4 text-xs text-gold min-h-4';err.textContent='Verifying…';
+      await new Promise(r=>setTimeout(r,2000));
       $('pw').blur();$('gate').remove();
       $('app').appendChild($('content').content.cloneNode(true));
       document.title='Happy Birthday, Gorgeous!';
