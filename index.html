@@ -14,7 +14,7 @@
       colors: { navy: '#0f1b2d', gold: '#a8814a', paper: '#f7f6f3' }
     } } };
   </script>
-  <style> 
+  <style>
     :root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
     html { scroll-behavior: smooth; scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 4rem); background: #f7f6f3; }
     body { background: #f7f6f3; }
@@ -46,42 +46,91 @@
   </main>
   <div id="intro" aria-label="Happy Birthday, Erich">
     <h1 class="flex flex-wrap justify-center gap-x-4 font-serif text-5xl sm:text-7xl font-semibold text-navy text-center leading-tight">
-      <span class="w" style="--i:0">Happy</span><span class="w" style="--i:1">Birthday,</span><span class="w text-gold italic" style="--i:2">Erich</span>
+      <span class="w" style="--i:0">Happy</span><span class="w" style="--i:1">Birthday,</span><span class="w text-gold italic" style="--i:2">Erich!</span>
     </h1>
   </div>
   <div id="app"></div>
 
+  <!-- ===== PAGE CONTENT (shown after the correct access code). Edit your messages here. ===== -->
+  <template id="content">
+<nav class="fixed inset-x-0 z-10 bg-paper/90 backdrop-blur border-b border-slate-200" style="top:env(safe-area-inset-top,0px)">
+    <div class="max-w-5xl mx-auto px-6 h-14 flex items-center justify-between text-sm">
+      <span class="font-serif text-lg font-semibold tracking-widest text-navy">P.E.A.</span>
+      <div class="flex gap-8 text-slate-500">
+        <a href="#message" class="hover:text-navy transition">Message</a>
+        <a href="#apology" class="hover:text-navy transition">Make Up</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="min-h-screen flex items-center justify-center text-center px-6 pt-14">
+    <div class="reveal max-w-2xl">
+      <p class="text-sm font-medium tracking-[0.3em] text-gold uppercase">October 4</p>
+      <h1 class="mt-6 font-serif text-5xl sm:text-7xl font-semibold text-navy leading-[1.05]">Happy Birthday,<br>Honey!</h1>
+      <div class="w-12 h-px bg-gold mx-auto my-8"></div>
+      <p class="max-w-md mx-auto text-lg font-light text-slate-500 leading-relaxed">
+        Wishing you a year as graceful, warm, and beautiful as you are.
+      </p>
+      <a href="#message" class="inline-block mt-12 px-7 py-3 text-sm font-medium tracking-wide text-white bg-navy rounded-md hover:bg-slate-800 transition">Read my message</a>
+    </div>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 py-24 space-y-28">
+
+    <section id="message" class="reveal">
+      <p class="text-xs font-medium tracking-[0.3em] text-gold uppercase text-center">Birthday Message</p>
+      <h2 class="mt-3 mb-10 font-serif text-4xl font-semibold text-navy text-center">With All My Gratitude</h2>
+      <!-- ✏️ EDIT YOUR BIRTHDAY MESSAGE: change the text inside the <p> below -->
+      <article class="bg-white rounded-lg border border-slate-200 border-t-2 border-t-gold shadow-sm p-8 sm:p-14">
+        <p class="font-serif text-xl sm:text-2xl leading-[1.75] text-slate-800">
+          Happy, happy birthday to the most beautiful woman on earth, my Erich Anne! Thank you for choosing to love me. Out of all the guys in this world, knowing that you chose me makes me feel like the luckiest and best man alive despite knowing all those you had experience in your past, ikaw lang naman nagmamatter saken, honey, and you still deserve the purest kind of love, and genuine kind of love okay? kaya don't think that you don't deserve one when every time you remember about your past. YK, I am endlessly grateful for your heart and everything you bring into my life, ikaw lang naman yung nagpaint sa dati kong pale looking na buhay binago mo and you made it colorful. Ikaw lang yung taong nakilala kong napaka-genuine yung personality and may emotional intelligence on par with me, napakabait mo pa, minsan lang din talaga kinukulang lang sa pasensya kaya nag e-errupt ikaw kaagad, pero if they know how to treat you right edi mafifeel din nila yung pinapafeel mo saken na kabaitan. Tapos ang tali-talino mo pa, alam ko rin talaga na marami ka ring hidden potentials pa honey, hindi mo pa nailalabas, you'd be so productive by the time that happens, napaka-soft girl mo pa, baby na baby ka pa talaga namin ng mom mo, ang cutiee patootiee na baby super pretty, mana kay tita na yan ay, ay. Kiss kaya kita sa harap ni tita? I hope this year brings you as much happiness as you endlessly give to me. I pray that God continues to bless you with good health, joy and most especially, peace; mentally, physically and now, spiritually. I love you more than words can express, palagi ko lang yan sinasabi kasi totoo talaga yan e. At Baby, I look forward to celebrating many more birthdays with you and making more memories together, syempre that includes yung dinner later sa Vikings-SM North na nilolook forward ko! Just know honey that I will always be here to support you and love you through everything, mahal na mahal kita. And, I pray also thay god continues to bless our relationship and that we will always be together, forever! Plus, I pray also na i-guide niya tayo sa lahat ng ating mga desisyon at patuloy tayong patatagin sa lahat ng challenges na darating sa ating buhay, that includes yung pinag-usapan natin once you're officially 21. I love you so much, my Erich Anne! ikaw at ikaw lang ang baby, baby ko, Happy 21st birthday, Pretty!
+      </article>
+    </section>
+
+    <section id="apology" class="reveal">
+      <p class="text-xs font-medium tracking-[0.3em] text-gold uppercase text-center">From the Heart</p>
+      <h2 class="mt-3 mb-10 font-serif text-4xl font-semibold text-navy text-center">Make Up</h2>
+      <!-- ✏️ EDIT YOUR APOLOGY MESSAGE: change the text inside the <p> below -->
+      <article class="bg-navy rounded-lg shadow-lg p-8 sm:p-14">
+        <p class="text-lg sm:text-xl leading-[1.8] font-light text-slate-200">
+          I also want to take this moment to sincerely apologize. I am truly sorry for my mistake, sorry talaga hon, for not doing what you asked me to do before na mag-advance paalam na ganon, and I hate that it’s too late now. ofc, I take full accountability for my oversight and the frustration it caused you. Promise hon, I am learning from this, and I want to do better by you because you deserve someone who listens, sinusunod ka ganon, and pinapahalagahan mga sinasabi mo. I also promise to be more better than my present self, so in the future hindi na kita masasaktan ulit ng ganito. Plus, I will make sure na you won't ever gon' feel na ikaw nalang lagi nag p'plan kada may occasion tayo, kung saan tayo ganon, what are we gon' eat ganon. Since, I really wanna stand up, lalo I am the guy here and I'm afraid I might lose you because of that. Plus, I really don't want you to feel na I don't care or hindi ako excited kapag ganon or hindi ko nil'look forward yung mga ganon. Kaya this time for sure, it won't cause you much time na thinking about sa next occasion plannings natin, I will be planning ahead of time, days before the occasion. I love you so much, baby! and sorry so much! Happy birthday, mwaa!
+        </p>
+      </article>
+    </section>
+
+    <section class="reveal text-center">
+      <div class="w-12 h-px bg-gold mx-auto mb-8"></div>
+      <p class="font-serif text-3xl font-semibold text-navy">I Love You So Much!</p>
+    </section>
+  </main>
+
+  <footer class="border-t border-slate-200 py-8 text-center text-xs tracking-widest text-slate-400 uppercase">October 4</footer>
+  </template>
+
   <script>
-    const P={s:'YwX4i8vE0JpZsH2bgEmPoQ==',i:'5uFKjZ/KhKVu5Nx0',d:'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'};
-    const u=x=>Uint8Array.from(atob(x),ch=>ch.charCodeAt(0));
-    async function decrypt(pw){
-      const km=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveKey']);
-      const k=await crypto.subtle.deriveKey({name:'PBKDF2',salt:u(P.s),iterations:250000,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
-      return new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:u(P.i)},k,u(P.d)));
-    }
+    const CODE_HASH='807e7c542324d83c0bbf1a1e99c2fe68715b4246b3d8c641dabd5bbf7cf5f036'; // SHA-256 of the access code
     const $=id=>document.getElementById(id);
+    const sha=async t=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(t)))].map(x=>x.toString(16).padStart(2,'0')).join('');
     $('f').onsubmit=async e=>{
       e.preventDefault();
       const err=$('err');err.textContent='';
-      try{
-        const html=await decrypt($('pw').value.trim().toUpperCase());
-        $('pw').blur();$('gate').remove();
-        $('app').innerHTML=html;
-        document.title='Happy Birthday, Erich Anne';
-        document.body.classList.add('intro');
-        document.body.style.overflow='hidden';
-        window.scrollTo(0,0);
-        setTimeout(()=>{
-          $('intro').classList.add('out');
-          document.body.style.overflow='';
-          const io=new IntersectionObserver(es=>es.forEach(x=>x.isIntersecting&&x.target.classList.add('show')),{threshold:.15});
-          document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-          setTimeout(()=>$('intro').remove(),1000);
-        },3400);
-      }catch(_){
-        err.textContent=window.crypto&&crypto.subtle?'Incorrect code. Please try again.':'A secure (https) connection is required.';
-        $('pw').select();
-      }
+      let ok=false;
+      try{ok=(await sha($('pw').value.replace(/[.\s]/g,'').toUpperCase()))===CODE_HASH}
+      catch(_){err.textContent='A secure (https) connection is required.';return}
+      if(!ok){err.textContent='Incorrect code. Please try again.';$('pw').select();return}
+      $('pw').blur();$('gate').remove();
+      $('app').appendChild($('content').content.cloneNode(true));
+      document.title='Happy Birthday, Gorgeous!';
+      document.body.classList.add('intro');
+      document.body.style.overflow='hidden';
+      window.scrollTo(0,0);
+      setTimeout(()=>{
+        $('intro').classList.add('out');
+        document.body.style.overflow='';
+        const io=new IntersectionObserver(es=>es.forEach(x=>x.isIntersecting&&x.target.classList.add('show')),{threshold:.15});
+        document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+        setTimeout(()=>$('intro').remove(),1000);
+      },3400);
     };
   </script>
 </body>
