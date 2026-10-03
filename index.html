@@ -55,9 +55,9 @@
     .g-field:focus-within::after{width:100%}
     #pw{caret-color:#a8814a}
     #pw::placeholder{color:#cbd5e1;letter-spacing:.6em}
-    #f:has(#err:not(:empty)) #pw{animation:sk .4s}
+    #f:has(#err.text-red-700:not(:empty)) #pw{animation:sk .4s}
     @keyframes sk{20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
-    @media (prefers-reduced-motion:reduce){.g-in{animation:none;opacity:1;transform:none}.g-line{animation:none;height:4.5rem}#f:has(#err:not(:empty)) #pw{animation:none}}
+    @media (prefers-reduced-motion:reduce){.g-in{animation:none;opacity:1;transform:none}.g-line{animation:none;height:4.5rem}#f:has(#err.text-red-700:not(:empty)) #pw{animation:none}}
     #intro{display:none;position:fixed;inset:0;z-index:50;background:#f7f6f3;align-items:center;justify-content:center;padding:1.5rem;transition:opacity .9s ease,visibility .9s}
     .intro #intro{display:flex}
     #intro.out{opacity:0;visibility:hidden}
@@ -170,9 +170,9 @@
       let ok=false;
       try{ok=(await sha($('pw').value.replace(/[.\s]/g,'').toUpperCase()))===CODE_HASH}
       catch(_){err.textContent='A secure (https) connection is required.';return}
-      if(!ok){err.textContent='Incorrect code. Please try again.';$('pw').select();return}
       busy=true;$('pw').readOnly=true;err.className='mt-4 text-xs text-gold min-h-4';err.textContent='Verifying…';
-      await new Promise(r=>setTimeout(r,2000));
+      await new Promise(r=>setTimeout(r,3000));
+      if(!ok){busy=false;$('pw').readOnly=false;err.className='mt-4 text-xs text-red-700 min-h-4';err.textContent='Incorrect code. Please try again.';$('pw').select();return}
       $('pw').blur();$('gate').remove();
       $('app').appendChild($('content').content.cloneNode(true));
       document.title='Happy Birthday, Gorgeous!';
@@ -187,9 +187,9 @@
         setTimeout(()=>$('intro').remove(),1000);
       },3400);
     };
-    document.addEventListener('input',async e=>{
-      if(e.target.id!=='pw')return;
-      try{if(await sha(e.target.value.replace(/[.\s]/g,'').toUpperCase())===CODE_HASH&&$('f'))$('f').requestSubmit()}catch(_){}
+    document.addEventListener('input',e=>{
+      if(e.target.id!=='pw'||busy)return;
+      if(e.target.value.replace(/[.\s]/g,'').length>=3&&$('f'))$('f').requestSubmit();
     });
     document.addEventListener('keydown',e=>{const m=$('mail-modal');if(e.key==='Escape'&&m)m.classList.replace('flex','hidden')});
     document.addEventListener('click',e=>{
